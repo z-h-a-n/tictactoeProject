@@ -5,34 +5,28 @@ $(document).ready(function(){
 	//get the 1st player
 	$(".choosePlay").on("click", choosePlay);
 	function choosePlay(){
-			if ($(this).attr("id") === "playerX") {
+		if ($(this).attr("id") === "playerX") {
 			var player1 = "x";
-			choosePlay(player1);
-			console.log(player1);
+			// setP1(player1);
 		} else {
 			var player1 = "o";
-			playInput(player1);
+			// setP1(player1);
 		}
+
+		$(".playInput").on("click", set1stInput);
+		var playInputsArray = [];
+		function set1stInput(){
+			if ($(this).attr("id") === "0") {
+				var totalInputs = playInputsArray.push(player1);
+				console.log(playInputsArray);
+			} else if ($(this).attr("id") === "1") {
+				var totalInputs = playInputsArray.push(player1);
+				console.log(playInputsArray);
+			}
+		}	
+
+
 	}
-
-	//
-	$(".playInput").on("click", playInput);
-	var playInputs = [];
-	function playInput(player1) {
-	// if ($(this).attr("id") === "0") {
-	// 	var totalInputs = playInputs.push(player1);
-	// 	console.log(play1);
-	// }
-		// debugger;
-		var totalInputs = playInputs.push(player1);
-		console.log(playInputs);
-	}
-
-
-
-		
-
-
 
 
 });//document.ready
