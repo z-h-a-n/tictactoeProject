@@ -15,37 +15,98 @@ $(document).ready(function(){
 
 
 
-		$(".playInput").on("click", set1stInput);
-		var playInputsArray = [];
-		function set1stInput(){
-			if (playInputsArray.length === 0) {
-				if ($(this).attr("id") === "0") {
-					var totalInputs = playInputsArray.push(player1);
-					$(this).text(player1)
-					console.log(playInputsArray);
-				} else if ($(this).attr("id") === "1") {
-					var totalInputs = playInputsArray.push(player1);
-					$(this).text(player1);
-					console.log(playInputsArray);
-					//add if statement for other keys
-				}
-			} else if (playInputsArray.length > 0) {
-					//allow input as long as no winner and array.lengh < 9
-						if (playInputsArray[playInputsArray.length - 1] === "x" && playInputsArray.length < 9 ) {
-							var totalInputs = playInputsArray.push("o");
-							console.log(playInputsArray);
-						} else if (playInputsArray[playInputsArray.length - 1] === "o" && playInputsArray.length < 9) {
-							var totalInputs = playInputsArray.push("x");
-							console.log(playInputsArray);
+		$(".playInput").on("click", setInput);
 
-						}
-					
-			}// end of else if playInputsArray.length > 0
+		var playInputsArray = [undefined, undefined, undefined, undefined,undefined, undefined, undefined, undefined, undefined];
 
-		}	
+		var lastInput = "";
+		function setInput(){
+		  //if input array is empty
+			if (lastInput === "") {
+				var input = $(this).attr("id");
+				switch (input) {
+					case "0":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "1":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "2":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "3":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "4":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "5":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "6":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "7":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+					break;
+					case "8":
+						playInputsArray[$(this).attr("id")] = player1;
+						$(this).text(player1);
+						lastInput = player1;
+						console.log(lastInput);
+						console.log(playInputsArray);
+				}	
+
+			} else if (lastInput === "x") {
+						$(this).text("o");
+						playInputsArray[$(this).attr("id")] = "o";
+						lastInput = "o";
+						console.log(playInputsArray);	
+			} else if (lastInput === "o") {
+						$(this).text("x");
+						playInputsArray[$(this).attr("id")] = "x";
+						lastInput = "x";
+						console.log(playInputsArray);	
+			};//if
+		
+		
+		
+		};//function setInput	
 
 
-	}
+	};//function choose play
 
 
 });//document.ready
