@@ -31,55 +31,66 @@ $(document).ready(function(){
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "1":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "2":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "3":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "4":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "5":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "6":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "7":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 					break;
 					case "8":
 						playInputsArray[$(this).attr("id")] = player1;
 						$(this).text(player1);
 						lastInput = player1;
+						$(this).attr("class","playInput cube stayPress")
 				};	
 			} else if (lastInput === "x") {
 						$(this).text("o");
 						playInputsArray[$(this).attr("id")] = "o";
 						lastInput = "o";
+						$(this).attr("class","playInput cube stayPress")
 			} else if (lastInput === "o") {
 						$(this).text("x");
 						playInputsArray[$(this).attr("id")] = "x";
 						lastInput = "x";
+						$(this).attr("class","playInput cube stayPress")
 			};//if
 
 			buttonClicks = Number(buttonClicks) + 1;
