@@ -2,7 +2,7 @@ body {
     font-size: 100%;
 }
 .perspective {
-    /* background-color: hsla(0,0%,0%,.1); */
+    background-color: hsla(0,0%,0%,.1); 
     background-image: -webkit-linear-gradient(hsla(0,0%,0%,.1) 2.5%, transparent 2.5%, transparent 97.5%, hsla(0,0%,0%,.1) 97.5%),
                       -webkit-linear-gradient(left, hsla(0,0%,0%,.1) 2.5%, transparent 2.5%, transparent 97.5%, hsla(0,0%,0%,.1) 97.5%);
     background-size: 7em 7em;
@@ -13,7 +13,7 @@ body {
      /*padding: 3em; */
     position: absolute;
     top: 50%;
-    width: 22em;
+    width: 21em;
     -webkit-transform: rotateX(45deg) rotateZ(45deg);
     -webkit-transform-style: preserve-3d;
 }
@@ -23,45 +23,53 @@ body {
 .cube:before {
     box-shadow: inset 0 0 0 .25em hsla(0,0%,0%,.1);
     content: '';
-    display: inline-block;
+    /*display: inline-block;*/
+    float: left;
     height: 7em;
     position: absolute;
     width: 7em;
-    vertical-align: center;
 }
 /* Top */
 .cube {
     /*display: inline-block;*/
     background-color: #f96;
     position: relative;
-    -webkit-transform: translateZ(7em);
+    -webkit-transform: scale3d(1, 1, .5) translateZ(7em);
     -webkit-transform-style: preserve-3d;
     -webkit-transition: .25s;
 }
 /* Left */
 .cube:after {
     background-color: #e75;
+    /*width: 40px;*/
     -webkit-transform: rotateX(-90deg) translateY(7em);
     -webkit-transform-origin: 100% 100%;
 }
 /* Right */
 .cube:before {
     /*display: inline-block;*/
+    /*width: 20px;*/
     background-color: #d64;
     -webkit-transform: rotateY(90deg) translateX(7em);
     -webkit-transform-origin: 100% 0;
 }
 
 .cube:hover {
-  -webkit-transform: scale3d(1, 1, 2) translateZ(0.015em);
-          transform: scale3d(1, 1, 2) translateZ(0.015em);
+  -webkit-transform: scale3d(1, 1, 0.7) translateZ(7em);
+          transform: scale3d(1, 1, 0.7) translateZ(7em);
   -webkit-transition: -webkit-transform 0.2s, background 0.8s, box-shadow 0.8s;
           transition: transform 0.2s, background 0.8s, box-shadow 0.8s;
 }
 
-.stayPress {
-    -webkit-transform: scale3d(1, 1, 2) translateZ(0.015em);
-          transform: scale3d(1, 1, 2) translateZ(0.015em);
+.stayPressx {
+    background-color: rgba(0, 0, 0, 1);
+    -webkit-transform: scale3d(1, 1, 1) translateZ(7em);
+          transform: scale3d(1, 1, 1) translateZ(7em);
 }
 
+.stayPresso {
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-transform: scale3d(1, 1, 1) translateZ(7em);
+          transform: scale3d(1, 1, 1) translateZ(7em);
+}
 
