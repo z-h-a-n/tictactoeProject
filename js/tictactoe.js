@@ -2,15 +2,29 @@ console.log("hello");
 
 $(document).ready(function(){
 
+	soundManager.onload = function () {
+
+		var mouseHoverSound = soundManager.createSound({
+			url:'/Users/zhan/Desktop/WDI13/homework/week_3/tictactoeProject/audio/Tink.aiff'
+		});
+
+		$(".playInput").on('mouseenter', function() {
+			mouseHoverSound.play({
+				volume: 50
+			});
+		});		
+
+	
+
 	//get the 1st player
 	$(".choosePlay").on("click", choosePlay);
 	function choosePlay(){
 		if ($(this).attr("id") === "playerX") {
 			var player1 = "x";
-			$(".chosenPlayer").text("BLACK has the first move");
+			$(".chosenPlayer").text("var firstMove = black;");
 		} else {
 			var player1 = "o";
-			$(".chosenPlayer").text("RED has the first move.");
+			$(".chosenPlayer").text("var firstMove = red;");
 		};
 
 
@@ -83,12 +97,12 @@ $(document).ready(function(){
 						lastInput = player1;
 						$(this).attr("class", "playInput cube stayPress" + player1)
 				};	
-			} else if (lastInput === "x") {
+			} else if (lastInput === "x" && playInputsArray[$(this).attr("id")] === undefined) {
 						// $(this).text("o");
 						playInputsArray[$(this).attr("id")] = "o";
 						lastInput = "o";
 						$(this).attr("class", "playInput cube stayPresso")
-			} else if (lastInput === "o") {
+			} else if (lastInput === "o" && playInputsArray[$(this).attr("id")] === undefined) {
 						// $(this).text("x");
 						playInputsArray[$(this).attr("id")] = "x";
 						lastInput = "x";
@@ -109,31 +123,55 @@ $(document).ready(function(){
 				var winCombi = true;
 				switch (winCombi) {
 					case winnerArray[0] === winnerArray[1] && winnerArray[1] === winnerArray[2] && winnerArray[1] !== undefined:
-						$(".winner").text(winnerArray[1] + " won");
+						$(".winner").text("var winner = " + winnerArray[1] + ";");
+						$("#0").attr("class", "playInput cube winner" + winnerArray[1]);
+						$("#1").attr("class", "playInput cube winner" + winnerArray[1]);
+						$("#2").attr("class", "playInput cube winner" + winnerArray[1]);
 					break;
 					case winnerArray[3] === winnerArray[4] && winnerArray[4] === winnerArray[5] && winnerArray[4] !== undefined:
-						$(".winner").text(winnerArray[4] + " won");
+						$(".winner").text("var winner = " + winnerArray[4] + ";");
+						$("#3").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#5").attr("class", "playInput cube winner" + winnerArray[4]);
 					break;
 					case winnerArray[6] === winnerArray[7] && winnerArray[7] === winnerArray[8] && winnerArray[7] !== undefined:
-						$(".winner").text(winnerArray[7] + " won");
+						$(".winner").text("var winner = " + winnerArray[7] + ";");
+						$("#6").attr("class", "playInput cube winner" + winnerArray[7]);
+						$("#7").attr("class", "playInput cube winner" + winnerArray[7]);
+						$("#8").attr("class", "playInput cube winner" + winnerArray[7]);
 					break;
 					case winnerArray[0] === winnerArray[3] && winnerArray[3] === winnerArray[6] && winnerArray[3] !== undefined:
-						$(".winner").text(winnerArray[3] + " won");
+						$(".winner").text("var winner = " + winnerArray[3] + ";");
+						$("#0").attr("class", "playInput cube winner" + winnerArray[3]);
+						$("#3").attr("class", "playInput cube winner" + winnerArray[3]);
+						$("#6").attr("class", "playInput cube winner" + winnerArray[3]);
 					break;
 					case winnerArray[1] === winnerArray[4] && winnerArray[4] === winnerArray[7] && winnerArray[4] !== undefined:
-						$(".winner").text(winnerArray[4] + " won");
+						$(".winner").text("var winner = " + winnerArray[4] + ";");
+						$("#1").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#7").attr("class", "playInput cube winner" + winnerArray[4]);
 					break;
 					case winnerArray[2] === winnerArray[5] && winnerArray[5] === winnerArray[8] && winnerArray[5] !== undefined:
-						$(".winner").text(winnerArray[5] + " won");
+						$(".winner").text("var winner = " + winnerArray[5] + ";");
+						$("#2").attr("class", "playInput cube winner" + winnerArray[5]);
+						$("#5").attr("class", "playInput cube winner" + winnerArray[5]);
+						$("#8").attr("class", "playInput cube winner" + winnerArray[5]);
 					break;
 					case winnerArray[0] === winnerArray[4] && winnerArray[4] === winnerArray[8] && winnerArray[4] !== undefined:
-						$(".winner").text(winnerArray[4] + " won");
+						$(".winner").text("var winner = " + winnerArray[4] + ";");
+						$("#0").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#8").attr("class", "playInput cube winner" + winnerArray[4]);
 					break;
 					case winnerArray[2] === winnerArray[4] && winnerArray[4] === winnerArray[6] && winnerArray[4] !== undefined:
-						$(".winner").text(winnerArray[4] + " won");
+						$(".winner").text("var winner = " + winnerArray[4] + ";");
+						$("#2").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
+						$("#6").attr("class", "playInput cube winner" + winnerArray[4]);
 					break;
 					case numClicks >= 9: 
-						$(".winner").text("It's a tie");
+						$(".winner").text("winner; undefined");
 				};
 			};
 
@@ -150,5 +188,8 @@ $(document).ready(function(){
 		});
 	};//function choose play
 
+	
+	
+};//soundmanager2
 
 });//document.ready

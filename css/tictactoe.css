@@ -1,10 +1,10 @@
 body {
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(193,193,193,1) 100%) no-repeat center center fixed;
-    font-size: 100%;
-    background-size: cover;
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(193,193,193,1) 100%)  fixed;
 }
 
 .title {
+    /*-webkit-text-stroke: 1px white;*/
+    width: 180px;
     font-family: helvetica;
     display: inline-block;
     margin-left: 70px;
@@ -24,24 +24,25 @@ body {
 #x {
     display: inline-block;
     font-size: 25px;
-    margin-top: 85px;
+    margin-top: 55px;
     color: white;
 }
 
 #o {
     display: inline-block;
     font-size: 25px;
-    margin-top: 85px;
+    margin-top: 55px;
     color: white;
 }
 
 .reset {
+    border: 1px solid white;
     display: inline-block;
     width: 7em;
     height: 7em;
     background-color: rgba(255, 210, 0, 1);
     margin-left: 70px;
-    margin-top: 400px;
+    margin-top: 350px;
     -webkit-transform: rotateX(45deg) rotateZ(45deg);
     -webkit-transform-style: preserve-3d;
 }
@@ -49,7 +50,7 @@ body {
 #playAgain {
     display: inline-block;
     font-size: 18px;
-    margin-top: 95px;
+    margin-top: 90px;
     color: white;
 }
 
@@ -62,6 +63,7 @@ body {
 }
 
 #playerX {
+    border: 1px solid white;
     display: inline-block;
     width: 7em;
     height: 7em;
@@ -73,6 +75,7 @@ body {
 }
 
 #playerO {
+    border: 1px solid white;
     display: inline-block;
     width: 7em;
     height: 7em;
@@ -173,3 +176,14 @@ body {
           transform: scale3d(1, 1, 1) translateZ(7em);
 }
 
+.winnerx {
+    background-color: rgba(0, 0, 0, 1);
+    -webkit-transform: scale3d(1, 1, 2) translateZ(7em);
+          transform: scale3d(1, 1, 2) translateZ(7em);
+}
+
+.winnero {
+    background-color: rgba(230, 0, 0, 1);
+    -webkit-transform: scale3d(1, 1, 2) translateZ(7em);
+          transform: scale3d(1, 1, 2) translateZ(7em);
+}
