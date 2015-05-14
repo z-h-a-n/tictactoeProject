@@ -1,16 +1,95 @@
 body {
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(193,193,193,1) 100%) no-repeat center center fixed;
     font-size: 100%;
+    background-size: cover;
 }
+
+.title {
+    font-family: helvetica;
+    display: inline-block;
+    margin-left: 70px;
+    margin-top: 70px;
+    -webkit-transform: rotateX(45deg) rotateZ(45deg);
+    -webkit-transform-style: preserve-3d;
+}
+
+.chosenPlayer {
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 70px;
+    -webkit-transform: rotateX(-90deg);
+    -webkit-transform-style: preserve-3d; 
+}
+
+#x {
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 85px;
+    color: white;
+}
+
+#o {
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 85px;
+    color: white;
+}
+
+.reset {
+    display: inline-block;
+    width: 7em;
+    height: 7em;
+    background-color: rgba(255, 210, 0, 1);
+    margin-left: 70px;
+    margin-top: 400px;
+    -webkit-transform: rotateX(45deg) rotateZ(45deg);
+    -webkit-transform-style: preserve-3d;
+}
+
+#playAgain {
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 95px;
+    color: white;
+}
+
+.winner {
+    font-size: 40px;
+    display: inline-block;
+    margin-left: 70px;
+    -webkit-transform: rotateX(-90deg);
+    -webkit-transform-style: preserve-3d; 
+}
+
+#playerX {
+    display: inline-block;
+    width: 7em;
+    height: 7em;
+    background-color: rgba(0, 0, 0, 1);
+    margin-left: 50px;
+    margin-top: -10px;
+    -webkit-transform: rotateX(45deg) rotateZ(45deg);
+    -webkit-transform-style: preserve-3d;
+}
+
+#playerO {
+    display: inline-block;
+    width: 7em;
+    height: 7em;
+    background-color: rgba(230, 0, 0, 1);
+    margin-left: -75px;
+    -webkit-transform: rotateX(45deg) rotateZ(45deg) rotateY(90deg) translateX(7em);
+    -webkit-transform-style: preserve-3d; 
+}
+
+
+
 .perspective {
-    background-color: hsla(0,0%,0%,.1); 
-    background-image: -webkit-linear-gradient(hsla(0,0%,0%,.1) 2.5%, transparent 2.5%, transparent 97.5%, hsla(0,0%,0%,.1) 97.5%),
-                      -webkit-linear-gradient(left, hsla(0,0%,0%,.1) 2.5%, transparent 2.5%, transparent 97.5%, hsla(0,0%,0%,.1) 97.5%);
     background-size: 7em 7em;
-    box-shadow: 0 0 0 .1em hsla(0,0%,0%,.2);
     height: 21em;
     left: 50%;
-    margin: -7.5em;
-     /*padding: 3em; */
+    margin: -8.5em;
+    /*padding: 1em; */
     position: absolute;
     top: 50%;
     width: 21em;
@@ -21,9 +100,8 @@ body {
 .cube,
 .cube:after,
 .cube:before {
-    box-shadow: inset 0 0 0 .25em hsla(0,0%,0%,.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1);
     content: '';
-    /*display: inline-block;*/
     float: left;
     height: 7em;
     position: absolute;
@@ -32,7 +110,7 @@ body {
 /* Top */
 .cube {
     /*display: inline-block;*/
-    background-color: #f96;
+    background-color: rgba(255, 210, 0, 1);
     position: relative;
     -webkit-transform: scale3d(1, 1, .5) translateZ(7em);
     -webkit-transform-style: preserve-3d;
@@ -40,7 +118,7 @@ body {
 }
 /* Left */
 .cube:after {
-    background-color: #e75;
+    background-color: rgba(255, 180, 0, 1);
     /*width: 40px;*/
     -webkit-transform: rotateX(-90deg) translateY(7em);
     -webkit-transform-origin: 100% 100%;
@@ -49,10 +127,32 @@ body {
 .cube:before {
     /*display: inline-block;*/
     /*width: 20px;*/
-    background-color: #d64;
+    background-color: rgba(255, 200, 0, 1);
     -webkit-transform: rotateY(90deg) translateX(7em);
     -webkit-transform-origin: 100% 0;
 }
+
+.reset:hover {
+    -webkit-transform: scale3d(1, 1, 1);
+
+    -webkit-transition: -webkit-transform 0.2s, background 0.8s, box-shadow 0.8s;
+          transition: transform 0.2s, background 0.8s, box-shadow 0.8s;
+}
+
+#playerX:hover {
+    -webkit-transform: scale3d(1, 1, 1);
+
+    -webkit-transition: -webkit-transform 0.2s, background 0.8s, box-shadow 0.8s;
+          transition: transform 0.2s, background 0.8s, box-shadow 0.8s;
+}
+
+#playerO:hover {
+    -webkit-transform: translateZ(20px);
+
+    -webkit-transition: -webkit-transform 0.2s, background 0.8s, box-shadow 0.8s;
+          transition: transform 0.2s, background 0.8s, box-shadow 0.8s;
+}
+
 
 .cube:hover {
   -webkit-transform: scale3d(1, 1, 0.7) translateZ(7em);
@@ -68,7 +168,7 @@ body {
 }
 
 .stayPresso {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(230, 0, 0, 1);
     -webkit-transform: scale3d(1, 1, 1) translateZ(7em);
           transform: scale3d(1, 1, 1) translateZ(7em);
 }

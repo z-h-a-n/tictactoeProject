@@ -7,10 +7,10 @@ $(document).ready(function(){
 	function choosePlay(){
 		if ($(this).attr("id") === "playerX") {
 			var player1 = "x";
-			$(".chosenPlayer").text("First player has chosen x. Second player has chosen o.")
+			$(".chosenPlayer").text("BLACK has the first move");
 		} else {
 			var player1 = "o";
-			$(".chosenPlayer").text("First player has chosen o. Second player has chosen x.")
+			$(".chosenPlayer").text("RED has the first move.");
 		};
 
 
@@ -23,6 +23,7 @@ $(document).ready(function(){
 
 
 		function setInput(){
+			$(".chosenPlayer").text("");
 		  //if input array is empty
 			if (lastInput === "") {
 				var input = $(this).attr("id");
@@ -100,11 +101,6 @@ $(document).ready(function(){
 		winner(playInputsArray, buttonClicks);
 		};//function setInput	
 
-
-		//check all 8 conditions to determin if x or o wins or tie
-		//max button input is 9 [need to track how many times a button is clicked]
-		//if buttonClicks < 9 && there is a winner => display winner
-		//if buttonClicks = 9 => display tie		
 		function winner(playInputsArray, buttonClicks) {
 			var winnerArray = playInputsArray;
 			var numClicks = buttonClicks;
@@ -142,10 +138,16 @@ $(document).ready(function(){
 			};
 
 		console.log(winnerArray);
-
 		};
 
-
+		$(".reset").on("click", function() {
+		$(".playInput").attr("class","playInput cube");
+		playInputsArray = [undefined, undefined, undefined, undefined,undefined, undefined, undefined, undefined, undefined];
+		player1="";
+		buttonClicks = "";
+			$(".winner").text("");
+		console.log(playInputsArray);
+		});
 	};//function choose play
 
 
