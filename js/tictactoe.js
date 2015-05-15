@@ -46,16 +46,18 @@ $(document).ready(function(){
 
 
 	//get the 1st player
-	$(".choosePlay").on("click", choosePlay);
-	function choosePlay(){
-		if ($(this).attr("id") === "playerX") {
-			var player1 = "x";
-			$(".chosenPlayer").text("var firstMove = black;");
-		} else {
-			var player1 = "o";
-			$(".chosenPlayer").text("var firstMove = red;");
-		};
+	// $(".choosePlay").on("click", choosePlay);
+	// function choosePlay(){
+	// 	if ($(this).attr("id") === "playerX") {
+	// 		var player1 = "x";
+	// 		$(".chosenPlayer").text("var firstMove = black;");
+	// 	} else {
+	// 		var player1 = "o";
+	// 		$(".chosenPlayer").text("var firstMove = red;");
+	// 	};
 
+    //this replaces the above function
+    var player1 = "o";
 
 
 		$(".playInput").on("click", setInput);
@@ -144,7 +146,7 @@ $(document).ready(function(){
 		winner(playInputsArray, buttonClicks);
 		};//function setInput	
 
-		function winner(playInputsArray, buttonClicks) {
+		function winner(playInputsArray, buttonClicks, winner) {
 			var winnerArray = playInputsArray;
 			var numClicks = buttonClicks;
 
@@ -157,6 +159,7 @@ $(document).ready(function(){
 						$("#0").attr("class", "playInput cube winner" + winnerArray[1]);
 						$("#1").attr("class", "playInput cube winner" + winnerArray[1]);
 						$("#2").attr("class", "playInput cube winner" + winnerArray[1]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[3] === winnerArray[4] && winnerArray[4] === winnerArray[5] && winnerArray[4] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[4] + ";");
@@ -164,6 +167,7 @@ $(document).ready(function(){
 						$("#3").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#5").attr("class", "playInput cube winner" + winnerArray[4]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[6] === winnerArray[7] && winnerArray[7] === winnerArray[8] && winnerArray[7] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[7] + ";");
@@ -171,6 +175,7 @@ $(document).ready(function(){
 						$("#6").attr("class", "playInput cube winner" + winnerArray[7]);
 						$("#7").attr("class", "playInput cube winner" + winnerArray[7]);
 						$("#8").attr("class", "playInput cube winner" + winnerArray[7]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[0] === winnerArray[3] && winnerArray[3] === winnerArray[6] && winnerArray[3] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[3] + ";");
@@ -178,6 +183,7 @@ $(document).ready(function(){
 						$("#0").attr("class", "playInput cube winner" + winnerArray[3]);
 						$("#3").attr("class", "playInput cube winner" + winnerArray[3]);
 						$("#6").attr("class", "playInput cube winner" + winnerArray[3]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[1] === winnerArray[4] && winnerArray[4] === winnerArray[7] && winnerArray[4] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[4] + ";");
@@ -185,6 +191,7 @@ $(document).ready(function(){
 						$("#1").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#7").attr("class", "playInput cube winner" + winnerArray[4]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[2] === winnerArray[5] && winnerArray[5] === winnerArray[8] && winnerArray[5] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[5] + ";");
@@ -192,6 +199,7 @@ $(document).ready(function(){
 						$("#2").attr("class", "playInput cube winner" + winnerArray[5]);
 						$("#5").attr("class", "playInput cube winner" + winnerArray[5]);
 						$("#8").attr("class", "playInput cube winner" + winnerArray[5]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[0] === winnerArray[4] && winnerArray[4] === winnerArray[8] && winnerArray[4] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[4] + ";");
@@ -199,6 +207,7 @@ $(document).ready(function(){
 						$("#0").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#8").attr("class", "playInput cube winner" + winnerArray[4]);
+            $(".playInput").off("click");
 					break;
 					case winnerArray[2] === winnerArray[4] && winnerArray[4] === winnerArray[6] && winnerArray[4] !== undefined:
 						$(".winner").text("var winner = " + winnerArray[4] + ";");
@@ -206,9 +215,11 @@ $(document).ready(function(){
 						$("#2").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#4").attr("class", "playInput cube winner" + winnerArray[4]);
 						$("#6").attr("class", "playInput cube winner" + winnerArray[4]);
+            $(".playInput").off("click");
 					break;
 					case numClicks >= 9: 
 						$(".winner").text("winner; undefined");
+
 				};
 			};
 
@@ -218,14 +229,12 @@ $(document).ready(function(){
 		$(".reset").on("click", function() {
 		$(".playInput").attr("class","playInput cube");
 		playInputsArray = [undefined, undefined, undefined, undefined,undefined, undefined, undefined, undefined, undefined];
-		player1="";
 		buttonClicks = "";
-			$(".winner").text("");
+		$(".winner").text("");
+    $(".playInput").on("click", setInput);
 		console.log(playInputsArray);
 		});
-	};//function choose play
-
-	
+	// };//function choose play
 	
 };//soundmanager2
 
