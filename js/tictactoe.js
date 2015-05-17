@@ -232,6 +232,11 @@ $(document).ready(function(){
 		buttonClicks = "";
 		$(".winner").text("");
     $(".playInput").on("click", setInput);
+    $(".playInput").on('click', function() {
+      mouseClickSound.play({
+        volume: 50
+      });
+    }); 
 		console.log(playInputsArray);
 		});
 	// };//function choose play
